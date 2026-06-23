@@ -5,38 +5,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register – Creator Craft Media Workshop | June 28, 2026</title>
-    <meta name="description" content="Reserve your seat at Nellore's first Content Creation & AI Film-Making Workshop. June 28, 2026. Limited to 30 seats." />
+    <meta name="description"
+        content="Reserve your seat at Nellore's first Content Creation & AI Film-Making Workshop. June 28, 2026. Limited to 30 seats." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
     <style>
         /* ── RESET ── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg:       #000000;
-            --panel-bg: #080808;
-            --card-bg:  #0f0f0f;
-            --blue:     #00BFFF;
-            --purple:   #6D5DFC;
-            --gold:     #FBBF24;
-            --orange:   #FF7A00;
-            --white:    #FFFFFF;
-            --white-60: rgba(255,255,255,0.6);
-            --white-20: rgba(255,255,255,0.08);
-            --border:   rgba(255,255,255,0.09);
-            --font:     'Montserrat', sans-serif;
-            --radius:   12px;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        html { scroll-behavior: smooth; }
+        :root {
+            --bg: #000000;
+            --panel-bg: #080808;
+            --card-bg: #0f0f0f;
+            --blue: #00BFFF;
+            --purple: #6D5DFC;
+            --gold: #FBBF24;
+            --orange: #FF7A00;
+            --white: #FFFFFF;
+            --white-60: rgba(255, 255, 255, 0.6);
+            --white-20: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.09);
+            --font: 'Montserrat', sans-serif;
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: var(--font);
             background: var(--bg);
             color: var(--white);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         /* ── LAYOUT ── */
@@ -70,10 +79,11 @@
             left: -80px;
             width: 380px;
             height: 380px;
-            background: radial-gradient(circle, rgba(109,93,252,0.18) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(109, 93, 252, 0.18) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
+
         .left-panel::after {
             content: '';
             position: fixed;
@@ -81,12 +91,15 @@
             left: 160px;
             width: 280px;
             height: 280px;
-            background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.1) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
 
-        .left-content { position: relative; z-index: 1; }
+        .left-content {
+            position: relative;
+            z-index: 1;
+        }
 
         /* Logo */
         .logo-row {
@@ -95,6 +108,7 @@
             gap: 12px;
             text-decoration: none;
         }
+
         .logo-icon {
             width: 40px;
             height: 40px;
@@ -108,14 +122,24 @@
             color: var(--blue);
             flex-shrink: 0;
         }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
         .logo-name {
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.06em;
             color: var(--white);
         }
-        .logo-name span { color: var(--blue); }
+
+        .logo-name span {
+            color: var(--blue);
+        }
+
         .logo-tag {
             font-size: 8px;
             letter-spacing: 0.18em;
@@ -133,15 +157,19 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .back-link:hover { color: var(--blue); }
+
+        .back-link:hover {
+            color: var(--blue);
+        }
 
         /* Event badge */
         .event-badge {
             display: inline-flex;
             align-items: center;
+            line-height: 1;
             gap: 8px;
-            background: rgba(0,191,255,0.08);
-            border: 1px solid rgba(0,191,255,0.25);
+            background: rgba(0, 191, 255, 0.08);
+            border: 1px solid rgba(0, 191, 255, 0.25);
             padding: 7px 16px;
             border-radius: 50px;
             font-size: 11px;
@@ -150,15 +178,27 @@
             text-transform: uppercase;
             color: var(--blue);
         }
+
         .event-badge .dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: var(--blue);
             animation: pulse 1.8s infinite;
+            display: inline-block;
+            flex-shrink: 0;
         }
+
         @keyframes pulse {
-            0%,100% { box-shadow: 0 0 0 0 rgba(0,191,255,0.5); }
-            50%      { box-shadow: 0 0 0 5px rgba(0,191,255,0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px rgba(0, 191, 255, 0);
+            }
         }
 
         /* Headline */
@@ -168,8 +208,14 @@
             line-height: 1.1;
             letter-spacing: -0.01em;
         }
-        .left-headline .hl-blue  { color: var(--blue); }
-        .left-headline .hl-gold  { color: var(--gold); }
+
+        .left-headline .hl-blue {
+            color: var(--blue);
+        }
+
+        .left-headline .hl-gold {
+            color: var(--gold);
+        }
 
         /* Workshop tag */
         .workshop-tag {
@@ -183,9 +229,15 @@
             border: 1.5px solid var(--purple);
             padding: 7px 20px;
             border-radius: 4px;
-            box-shadow: 0 0 14px rgba(109,93,252,0.25);
+            box-shadow: 0 0 14px rgba(109, 93, 252, 0.25);
         }
-        .workshop-tag::before, .workshop-tag::after { content: '◆'; font-size: 0.55em; opacity: 0.6; }
+
+        .workshop-tag::before,
+        .workshop-tag::after {
+            content: '◆';
+            font-size: 0.55em;
+            opacity: 0.6;
+        }
 
         /* Date/location */
         .event-meta {
@@ -193,6 +245,7 @@
             flex-direction: column;
             gap: 10px;
         }
+
         .meta-item {
             display: flex;
             align-items: center;
@@ -200,6 +253,7 @@
             font-size: 14px;
             color: var(--white-60);
         }
+
         .meta-icon {
             width: 32px;
             height: 32px;
@@ -212,7 +266,10 @@
             font-size: 15px;
             flex-shrink: 0;
         }
-        .meta-item strong { color: var(--white); }
+
+        .meta-item strong {
+            color: var(--white);
+        }
 
         /* Divider */
         .divider {
@@ -229,12 +286,14 @@
             text-transform: uppercase;
             margin-bottom: 12px;
         }
+
         .highlight-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
+
         .highlight-list li {
             display: flex;
             align-items: center;
@@ -242,11 +301,13 @@
             font-size: 13px;
             color: var(--white-60);
         }
+
         .hl-check {
-            width: 20px; height: 20px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background: rgba(0,191,255,0.1);
-            border: 1px solid rgba(0,191,255,0.3);
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -257,25 +318,37 @@
 
         /* Urgency bar */
         .urgency-card {
-            background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(255,122,0,0.06));
-            border: 1px solid rgba(251,191,36,0.25);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(255, 122, 0, 0.06));
+            border: 1px solid rgba(251, 191, 36, 0.25);
             border-radius: 10px;
             padding: 16px 18px;
         }
+
         .urgency-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-        .urgency-label { font-size: 12px; font-weight: 600; color: var(--gold); }
-        .urgency-count { font-size: 12px; color: var(--white-60); }
+
+        .urgency-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .urgency-count {
+            font-size: 12px;
+            color: var(--white-60);
+        }
+
         .progress-bar {
             height: 6px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 50px;
             overflow: hidden;
         }
+
         .progress-fill {
             height: 100%;
             width: 78%;
@@ -283,7 +356,17 @@
             border-radius: 50px;
             animation: fill-in 1.2s ease-out forwards;
         }
-        @keyframes fill-in { from { width: 0; } to { width: 78%; } }
+
+        @keyframes fill-in {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 78%;
+            }
+        }
+
         .urgency-note {
             font-size: 11px;
             color: var(--white-60);
@@ -298,9 +381,14 @@
             font-size: 12px;
             color: var(--white-60);
         }
-        .avatar-stack { display: flex; }
+
+        .avatar-stack {
+            display: flex;
+        }
+
         .avatar {
-            width: 28px; height: 28px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             border: 2px solid var(--bg);
             background: linear-gradient(135deg, var(--purple), var(--blue));
@@ -312,7 +400,10 @@
             justify-content: center;
             color: var(--white);
         }
-        .avatar:first-child { margin-left: 0; }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
 
 
         /* ══════════════════════════════
@@ -327,6 +418,7 @@
         .form-top {
             margin-bottom: 36px;
         }
+
         .form-step-label {
             font-size: 11px;
             font-weight: 700;
@@ -335,6 +427,7 @@
             text-transform: uppercase;
             margin-bottom: 8px;
         }
+
         .form-heading {
             font-size: 28px;
             font-weight: 800;
@@ -342,7 +435,11 @@
             line-height: 1.2;
             margin-bottom: 6px;
         }
-        .form-heading span { color: var(--blue); }
+
+        .form-heading span {
+            color: var(--blue);
+        }
+
         .form-sub {
             font-size: 14px;
             color: var(--white-60);
@@ -354,9 +451,15 @@
             grid-template-columns: 1fr 1fr;
             gap: 0 20px;
         }
-        .field-full { grid-column: 1 / -1; }
 
-        .field-group { margin-bottom: 20px; }
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+        .field-group {
+            margin-bottom: 20px;
+        }
+
         .field-group label {
             display: block;
             font-size: 13px;
@@ -364,14 +467,22 @@
             margin-bottom: 7px;
             color: var(--white);
         }
-        .req { color: var(--blue); }
-        .opt { color: var(--white-60); font-weight: 400; font-size: 11px; }
+
+        .req {
+            color: var(--blue);
+        }
+
+        .opt {
+            color: var(--white-60);
+            font-weight: 400;
+            font-size: 11px;
+        }
 
         .field-group input[type="text"],
         .field-group input[type="email"],
         .field-group input[type="tel"] {
             width: 100%;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 13px 16px;
@@ -381,12 +492,20 @@
             transition: border-color 0.2s, box-shadow 0.2s;
             outline: none;
         }
-        .field-group input::placeholder { color: rgba(255,255,255,0.22); }
+
+        .field-group input::placeholder {
+            color: rgba(255, 255, 255, 0.22);
+        }
+
         .field-group input:focus {
             border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(0,191,255,0.1);
+            box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.1);
         }
-        .field-group input.input-error { border-color: #F87171; }
+
+        .field-group input.input-error {
+            border-color: #F87171;
+        }
+
         .field-error {
             display: block;
             font-size: 11px;
@@ -401,16 +520,23 @@
             flex-wrap: wrap;
             gap: 8px;
         }
+
         .radio-group.col2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-        .radio-card { display: flex; cursor: pointer; }
+
+        .radio-card {
+            display: flex;
+            cursor: pointer;
+        }
+
         .radio-card input[type="radio"] {
             position: absolute;
             opacity: 0;
             pointer-events: none;
         }
+
         .radio-label {
             display: flex;
             align-items: center;
@@ -418,7 +544,7 @@
             padding: 9px 16px;
             border-radius: 8px;
             border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             font-size: 12px;
             font-weight: 500;
             color: var(--white-60);
@@ -428,20 +554,28 @@
             text-align: center;
             user-select: none;
         }
-        .radio-card input:checked + .radio-label {
+
+        .radio-card input:checked+.radio-label {
             border-color: var(--blue);
-            background: rgba(0,191,255,0.1);
+            background: rgba(0, 191, 255, 0.1);
             color: var(--blue);
             box-shadow: 0 0 0 1px var(--blue);
         }
-        .radio-label:hover { border-color: rgba(0,191,255,0.4); color: var(--blue); }
+
+        .radio-label:hover {
+            border-color: rgba(0, 191, 255, 0.4);
+            color: var(--blue);
+        }
 
         /* Select */
-        .select-wrap { position: relative; }
+        .select-wrap {
+            position: relative;
+        }
+
         .select-wrap select {
             width: 100%;
             appearance: none;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 13px 40px 13px 16px;
@@ -452,11 +586,17 @@
             cursor: pointer;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
+
         .select-wrap select:focus {
             border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(0,191,255,0.1);
+            box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.1);
         }
-        .select-wrap select option { background: #0f0f0f; color: var(--white); }
+
+        .select-wrap select option {
+            background: #0f0f0f;
+            color: var(--white);
+        }
+
         .select-arrow {
             position: absolute;
             right: 14px;
@@ -468,7 +608,12 @@
         }
 
         /* Instagram prefix */
-        .input-prefix-wrap { position: relative; display: flex; align-items: center; }
+        .input-prefix-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
         .input-prefix {
             position: absolute;
             left: 14px;
@@ -476,7 +621,10 @@
             font-size: 14px;
             pointer-events: none;
         }
-        .input-prefix-wrap input { padding-left: 28px; }
+
+        .input-prefix-wrap input {
+            padding-left: 28px;
+        }
 
         /* Divider in form */
         .form-divider {
@@ -502,37 +650,57 @@
             border: none;
             cursor: pointer;
             overflow: hidden;
-            box-shadow: 0 4px 32px rgba(255,122,0,0.4);
+            box-shadow: 0 4px 32px rgba(255, 122, 0, 0.4);
             transition: transform 0.25s, box-shadow 0.25s, opacity 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
+
         .btn-submit::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 55%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+            top: 0;
+            left: -100%;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
             transition: left 0.55s ease;
         }
-        .btn-submit:hover:not(:disabled)::after { left: 160%; }
+
+        .btn-submit:hover:not(:disabled)::after {
+            left: 160%;
+        }
+
         .btn-submit:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(255,122,0,0.6);
+            box-shadow: 0 8px 40px rgba(255, 122, 0, 0.6);
         }
-        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
         .btn-loader {
-            width: 20px; height: 20px;
-            border: 2px solid rgba(0,0,0,0.3);
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
             border-top-color: #0a0a0a;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .hidden { display: none !important; }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
 
         .form-note {
             text-align: center;
@@ -540,7 +708,136 @@
             color: var(--white-60);
             margin-top: 14px;
         }
-        .form-note svg { vertical-align: middle; margin-right: 4px; }
+
+        .form-note svg {
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* ── Queue Card ── */
+        .queue-card {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .queue-spinner-wrap {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 24px;
+        }
+
+        .queue-spinner {
+            position: absolute;
+            inset: 0;
+            border: 3px solid rgba(251, 191, 36, 0.08);
+            border-top-color: var(--gold);
+            border-bottom-color: var(--orange);
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        .queue-spinner-inner {
+            position: absolute;
+            inset: 12px;
+            border: 3px solid rgba(0, 191, 255, 0.08);
+            border-left-color: var(--blue);
+            border-right-color: var(--purple);
+            border-radius: 50%;
+            animation: spin-reverse 1s linear infinite;
+        }
+
+        @keyframes spin-reverse {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .queue-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .queue-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse-gold 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(251, 191, 36, 0);
+            }
+        }
+
+        .queue-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .queue-title span {
+            color: var(--gold);
+        }
+
+        .queue-progress-container {
+            width: 100%;
+            max-width: 320px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .queue-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--blue), var(--purple), var(--gold));
+            border-radius: 50px;
+            transition: width 0.3s ease;
+        }
+
+        .queue-status-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+            min-height: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .queue-sub-msg {
+            font-size: 12px;
+            color: var(--white-60);
+            line-height: 1.5;
+            max-width: 340px;
+        }
 
         /* ── Success Card ── */
         .success-card {
@@ -549,6 +846,7 @@
             max-width: 480px;
             margin: 0 auto;
         }
+
         .success-confetti {
             position: fixed;
             inset: 0;
@@ -556,29 +854,51 @@
             z-index: 999;
             overflow: hidden;
         }
+
         .confetti-piece {
             position: absolute;
             animation: fall linear forwards;
         }
+
         @keyframes fall {
-            0%   { transform: translateY(-20px) rotate(0deg);   opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
         }
-        .success-icon { font-size: 64px; margin-bottom: 20px; }
+
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
         .success-title {
             font-size: 28px;
             font-weight: 800;
             margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
-        .success-title span { color: var(--blue); }
+
+        .success-title span {
+            color: var(--blue);
+        }
+
         .success-msg {
             font-size: 15px;
             color: var(--white-60);
             line-height: 1.65;
             margin-bottom: 28px;
         }
-        .success-msg strong { color: var(--white); }
+
+        .success-msg strong {
+            color: var(--white);
+        }
+
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
@@ -591,11 +911,16 @@
             padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.35);
             transition: transform 0.2s, box-shadow 0.2s;
             margin-bottom: 16px;
         }
-        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+        }
+
         .back-home-link {
             display: block;
             margin-top: 12px;
@@ -604,385 +929,536 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .back-home-link:hover { color: var(--blue); }
+
+        .back-home-link:hover {
+            color: var(--blue);
+        }
+
+        .mobile-header {
+            display: none;
+        }
+
+        .left-header-desktop {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
 
         /* ── MOBILE ── */
         @media (max-width: 900px) {
-            .page-wrapper { grid-template-columns: 1fr; }
+            .page-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .left-header-desktop {
+                display: none;
+            }
+
             .left-panel {
                 position: static;
                 height: auto;
-                padding: 36px 24px;
+                padding: 44px 24px 48px;
+                order: 2;
+                border-right: none;
+                border-top: 1px solid var(--border);
+                background: linear-gradient(180deg, #050508 0%, #000000 100%);
             }
-            .left-panel::before, .left-panel::after { display: none; }
-            .right-panel { padding: 36px 24px; }
-            .fields-grid { grid-template-columns: 1fr; }
-            .radio-group.col2 { grid-template-columns: 1fr; }
+
+            .left-panel::before,
+            .left-panel::after {
+                display: none;
+            }
+
+            .right-panel {
+                padding: 20px 24px 36px;
+                order: 1;
+            }
+
+            .mobile-header {
+                display: block;
+                position: sticky;
+                top: 0;
+                background: #000000;
+                z-index: 100;
+                border-bottom: 1px solid var(--border);
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 24px;
+                padding-right: 24px;
+                margin-top: -20px;
+                margin-left: -24px;
+                margin-right: -24px;
+                margin-bottom: 20px;
+            }
+
+            .form-top {
+                text-align: center;
+                margin-bottom: 28px;
+            }
+
+            .fields-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group.col2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-<div class="page-wrapper">
+    <div class="page-wrapper">
 
-    <!-- ════════ LEFT PANEL ════════ -->
-    <aside class="left-panel">
-        <div class="left-content" style="display:flex;flex-direction:column;gap:28px;">
+        <!-- ════════ LEFT PANEL ════════ -->
+        <aside class="left-panel">
+            <div class="left-content" style="display:flex;flex-direction:column;gap:28px;">
 
-            <!-- Logo + back -->
-            <div style="display:flex;flex-direction:column;gap:16px;">
-                <a href="index.html" class="logo-row">
-                    <img src="logo.png" alt="Creator Craft Media" style="height:70px;width:auto;object-fit:contain;" />
-                </a>
-                <a href="index.html" class="back-link">
-                    ← Back to main site
-                </a>
-            </div>
-
-            <!-- Live badge -->
-            <div class="event-badge">
-                <span class="dot"></span>
-                Registration Open
-            </div>
-
-            <!-- Headline -->
-            <div>
-                <div class="workshop-tag" style="margin-bottom:16px;">◆ WORKSHOP ◆</div>
-                <h1 class="left-headline">
-                    Turn Your <span class="hl-blue">Mobile</span><br>
-                    Into A <span class="hl-gold">Career.</span>
-                </h1>
-            </div>
-
-            <!-- Meta -->
-            <div class="event-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span><strong>June 28, 2026</strong> &nbsp;·&nbsp; Saturday</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📍</span>
-                    <span><strong>Nellore</strong>, Andhra Pradesh</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">⏱️</span>
-                    <span><strong>1 Full Day</strong> — Hands-on Workshop</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">🎓</span>
-                    <span><strong>Certificate</strong> Provided to All Attendees</span>
-                </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- Highlights -->
-            <div>
-                <p class="highlights-title">What You'll Walk Away With</p>
-                <ul class="highlight-list">
-                    <li><span class="hl-check">✓</span> Professional content creation skills</li>
-                    <li><span class="hl-check">✓</span> AI film-making tools (Runway, Kling, Higgsfield)</li>
-                    <li><span class="hl-check">✓</span> Viral Reels strategy & editing techniques</li>
-                    <li><span class="hl-check">✓</span> Freelancing & brand deal know-how</li>
-                    <li><span class="hl-check">✓</span> Private creator community access</li>
-                </ul>
-            </div>
-
-            <div class="divider"></div>
-
-
-            <!-- Social proof -->
-            <div class="social-proof">
-                <div class="avatar-stack">
-                    <div class="avatar">R</div>
-                    <div class="avatar">A</div>
-                    <div class="avatar">S</div>
-                    <div class="avatar">K</div>
-                </div>
-                <span>23 creators already registered today</span>
-            </div>
-
-        </div>
-    </aside>
-
-    <!-- ════════ RIGHT PANEL (FORM) ════════ -->
-    <main class="right-panel">
-
-        <!-- FORM -->
-        <div id="formSection">
-            <div class="form-top">
-                <p class="form-step-label">Step 1 of 1 — Registration Details</p>
-                <h2 class="form-heading">Reserve Your <span>Seat</span></h2>
-                <p class="form-sub">Takes under 60 seconds. All fields marked <span style="color:var(--blue)">*</span> are required.</p>
-            </div>
-
-            <form id="registrationForm" novalidate>
-                <div class="fields-grid">
-
-                    <!-- Full Name -->
-                    <div class="field-group field-full">
-                        <label for="fullName">Full Name <span class="req">*</span></label>
-                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
-                        <span class="field-error" id="err-fullName"></span>
+                <!-- Desktop-only Header -->
+                <div class="left-header-desktop">
+                    <!-- Logo + back -->
+                    <div style="display:flex;flex-direction:column;gap:16px;">
+                        <a href="index.html" class="logo-row">
+                            <img src="logo.png" alt="Creator Craft Media"
+                                style="height:70px;width:auto;object-fit:contain;" />
+                        </a>
+                        <a href="index.html" class="back-link">
+                            ← Back to main site
+                        </a>
                     </div>
 
-                    <!-- Phone -->
+                    <!-- Live badge -->
+                    <div class="event-badge">
+                        <span class="dot"></span>
+                        Registration Open
+                    </div>
+
+                    <!-- Headline -->
+                    <div>
+                        <div class="workshop-tag" style="margin-bottom:16px;">◆ WORKSHOP ◆</div>
+                        <h1 class="left-headline">
+                            Turn Your <span class="hl-blue">Mobile</span><br>
+                            Into A <span class="hl-gold">Career.</span>
+                        </h1>
+                    </div>
+
+                    <div class="divider"></div>
+                </div>
+
+                <!-- Highlights -->
+                <div>
+                    <p class="highlights-title">What You'll Walk Away With</p>
+                    <ul class="highlight-list">
+                        <li><span class="hl-check">✓</span> Professional content creation skills</li>
+                        <li><span class="hl-check">✓</span> AI film-making tools (HiggsField, HeyGen, Google Flow,
+                            Google AI Studio, Kling)</li>
+                        <li><span class="hl-check">✓</span> Viral Reels strategy & editing techniques</li>
+                        <li><span class="hl-check">✓</span> Freelancing & brand deal know-how</li>
+                        <li><span class="hl-check">✓</span> Private creator community access</li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+
+                <!-- Social proof -->
+                <div class="social-proof">
+                    <div class="avatar-stack">
+                        <div class="avatar">R</div>
+                        <div class="avatar">A</div>
+                        <div class="avatar">S</div>
+                        <div class="avatar">K</div>
+                    </div>
+                    <span>23 creators already registered today</span>
+                </div>
+
+            </div>
+        </aside>
+
+        <main class="right-panel">
+            <div class="mobile-header">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Creator Craft Media" style="height: 52px; width: auto; object-fit: contain;" />
+                    </a>
+                    <a href="index.html" style="font-size: 13px; color: var(--white-60); text-decoration: none; display: flex; align-items: center; gap: 4px; font-weight: 600;">
+                        ← Back
+                    </a>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div id="formSection">
+                <div class="form-top">
+                    <div class="event-badge" style="margin-bottom: 16px;">
+                        <span class="dot"></span>
+                        Live Workshop Registrations
+                    </div>
+                    <p class="form-step-label">Step 1 of 1 — Registration Details</p>
+                    <h2 class="form-heading">Reserve Your <span>Seat</span></h2>
+                    <p class="form-sub">Takes under 60 seconds. All fields marked <span
+                            style="color:var(--blue)">*</span> are required.</p>
+                </div>
+
+                <form id="registrationForm" novalidate>
+                    <div class="fields-grid">
+
+                        <!-- Full Name -->
+                        <div class="field-group field-full">
+                            <label for="fullName">Full Name <span class="req">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                required />
+                            <span class="field-error" id="err-fullName"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="field-group">
+                            <label for="phone">WhatsApp Number <span class="req">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 99999 00000" required />
+                            <span class="field-error" id="err-phone"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="field-group">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                            <span class="field-error" id="err-email"></span>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="field-group field-full">
+                            <label for="location">Your City / Area <span class="req">*</span></label>
+                            <input type="text" id="location" name="location" placeholder="e.g. Nellore, Tirupati..."
+                                required />
+                            <span class="field-error" id="err-location"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Age -->
                     <div class="field-group">
-                        <label for="phone">WhatsApp Number <span class="req">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="+91 99999 00000" required />
-                        <span class="field-error" id="err-phone"></span>
+                        <label>Age Group <span class="req">*</span></label>
+                        <div class="radio-group" id="age-group">
+                            <label class="radio-card"><input type="radio" name="age" value="18–25" required /><span
+                                    class="radio-label">18 – 25</span></label>
+                            <label class="radio-card"><input type="radio" name="age" value="26–35" /><span
+                                    class="radio-label">26 – 35</span></label>
+                            <label class="radio-card"><input type="radio" name="age" value="35+" /><span
+                                    class="radio-label">35+</span></label>
+                        </div>
+                        <span class="field-error" id="err-age"></span>
                     </div>
 
-                    <!-- Email -->
+                    <!-- Learning Interest -->
                     <div class="field-group">
-                        <label for="email">Email Address <span class="req">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
-                        <span class="field-error" id="err-email"></span>
+                        <label>What do you want to learn most? <span class="req">*</span></label>
+                        <div class="radio-group col2" id="interest-group">
+                            <label class="radio-card"><input type="radio" name="interest" value="Content Creation"
+                                    required /><span class="radio-label">Content Creation</span></label>
+                            <label class="radio-card"><input type="radio" name="interest"
+                                    value="Viral Reels Creation" /><span class="radio-label">Viral Reels
+                                    Creation</span></label>
+                            <label class="radio-card"><input type="radio" name="interest" value="AI Film Making" /><span
+                                    class="radio-label">AI Film Making</span></label>
+                            <label class="radio-card"><input type="radio" name="interest"
+                                    value="Freelancing Opportunities" /><span
+                                    class="radio-label">Freelancing</span></label>
+                            <label class="radio-card"><input type="radio" name="interest"
+                                    value="Cinematic Video Shooting" /><span class="radio-label">Cinematic
+                                    Shooting</span></label>
+                        </div>
+                        <span class="field-error" id="err-interest"></span>
                     </div>
 
-                    <!-- Location -->
-                    <div class="field-group field-full">
-                        <label for="location">Your City / Area <span class="req">*</span></label>
-                        <input type="text" id="location" name="location" placeholder="e.g. Nellore, Tirupati..." required />
-                        <span class="field-error" id="err-location"></span>
+                    <!-- Profession -->
+                    <div class="field-group">
+                        <label>You are a? <span class="req">*</span></label>
+                        <div class="radio-group col2" id="profession-group">
+                            <label class="radio-card"><input type="radio" name="profession" value="Student"
+                                    required /><span class="radio-label">Student</span></label>
+                            <label class="radio-card"><input type="radio" name="profession"
+                                    value="Content Creator / Freelancer" /><span class="radio-label">Creator /
+                                    Freelancer</span></label>
+                            <label class="radio-card"><input type="radio" name="profession"
+                                    value="Business Owner" /><span class="radio-label">Business Owner</span></label>
+                            <label class="radio-card"><input type="radio" name="profession" value="Employee" /><span
+                                    class="radio-label">Employee</span></label>
+                        </div>
+                        <span class="field-error" id="err-profession"></span>
                     </div>
 
+                    <!-- AI Experience -->
+                    <div class="field-group">
+                        <label>Have you used AI tools before? <span class="req">*</span></label>
+                        <div class="radio-group" id="ai-group">
+                            <label class="radio-card"><input type="radio" name="aiExp" value="Yes, Expert"
+                                    required /><span class="radio-label">Yes, Expert</span></label>
+                            <label class="radio-card"><input type="radio" name="aiExp"
+                                    value="Yes, Basic Knowledge" /><span class="radio-label">Yes, Basic</span></label>
+                            <label class="radio-card"><input type="radio" name="aiExp" value="No, Never Used" /><span
+                                    class="radio-label">Never Used</span></label>
+                        </div>
+                        <span class="field-error" id="err-aiExp"></span>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Instagram -->
+                    <div class="field-group">
+                        <label for="instagram">Instagram Username <span class="opt">(Optional)</span></label>
+                        <div class="input-prefix-wrap">
+                            <span class="input-prefix">@</span>
+                            <input type="text" id="instagram" name="instagram" placeholder="yourhandle" />
+                        </div>
+                    </div>
+
+                    <!-- Referral -->
+                    <div class="field-group">
+                        <label>How did you hear about this workshop?</label>
+                        <div class="select-wrap">
+                            <select id="referral" name="referral">
+                                <option value="">— Select one —</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Friend">Friend / Word of Mouth</option>
+                                <option value="College">College</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span class="select-arrow">▾</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span id="btn-text">Reserve My Seat →</span>
+                        <span id="btn-loader" class="btn-loader hidden"></span>
+                    </button>
+
+                    <p class="form-note">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        Your data is secure &amp; will only be used for workshop coordination.
+                    </p>
+                </form>
+            </div>
+
+            <!-- QUEUE CARD -->
+            <div class="queue-card hidden" id="queueCard">
+                <div class="queue-spinner-wrap">
+                    <div class="queue-spinner"></div>
+                    <div class="queue-spinner-inner"></div>
                 </div>
-
-                <div class="form-divider"></div>
-
-                <!-- Age -->
-                <div class="field-group">
-                    <label>Age Group <span class="req">*</span></label>
-                    <div class="radio-group" id="age-group">
-                        <label class="radio-card"><input type="radio" name="age" value="18–25" required /><span class="radio-label">18 – 25</span></label>
-                        <label class="radio-card"><input type="radio" name="age" value="26–35" /><span class="radio-label">26 – 35</span></label>
-                        <label class="radio-card"><input type="radio" name="age" value="35+" /><span class="radio-label">35+</span></label>
-                    </div>
-                    <span class="field-error" id="err-age"></span>
+                <div class="queue-badge">
+                    <span class="queue-dot"></span>
+                    Please Wait
                 </div>
-
-                <!-- Learning Interest -->
-                <div class="field-group">
-                    <label>What do you want to learn most? <span class="req">*</span></label>
-                    <div class="radio-group col2" id="interest-group">
-                        <label class="radio-card"><input type="radio" name="interest" value="Content Creation" required /><span class="radio-label">Content Creation</span></label>
-                        <label class="radio-card"><input type="radio" name="interest" value="Viral Reels Creation" /><span class="radio-label">Viral Reels Creation</span></label>
-                        <label class="radio-card"><input type="radio" name="interest" value="AI Film Making" /><span class="radio-label">AI Film Making</span></label>
-                        <label class="radio-card"><input type="radio" name="interest" value="Freelancing Opportunities" /><span class="radio-label">Freelancing</span></label>
-                        <label class="radio-card"><input type="radio" name="interest" value="Cinematic Video Shooting" /><span class="radio-label">Cinematic Shooting</span></label>
-                    </div>
-                    <span class="field-error" id="err-interest"></span>
+                <h2 class="queue-title">You are in <span>Queue...</span></h2>
+                <div class="queue-progress-container">
+                    <div class="queue-progress-bar" id="queueProgressBar"></div>
                 </div>
+                <p class="queue-status-text" id="queueStatusText">Connecting to registration system...</p>
+                <p class="queue-sub-msg">High traffic: locking slot reservations. Please do not refresh or press back.</p>
+            </div>
 
-                <!-- Profession -->
-                <div class="field-group">
-                    <label>You are a? <span class="req">*</span></label>
-                    <div class="radio-group col2" id="profession-group">
-                        <label class="radio-card"><input type="radio" name="profession" value="Student" required /><span class="radio-label">Student</span></label>
-                        <label class="radio-card"><input type="radio" name="profession" value="Content Creator / Freelancer" /><span class="radio-label">Creator / Freelancer</span></label>
-                        <label class="radio-card"><input type="radio" name="profession" value="Business Owner" /><span class="radio-label">Business Owner</span></label>
-                        <label class="radio-card"><input type="radio" name="profession" value="Employee" /><span class="radio-label">Employee</span></label>
-                    </div>
-                    <span class="field-error" id="err-profession"></span>
-                </div>
-
-                <!-- AI Experience -->
-                <div class="field-group">
-                    <label>Have you used AI tools before? <span class="req">*</span></label>
-                    <div class="radio-group" id="ai-group">
-                        <label class="radio-card"><input type="radio" name="aiExp" value="Yes, Expert" required /><span class="radio-label">Yes, Expert</span></label>
-                        <label class="radio-card"><input type="radio" name="aiExp" value="Yes, Basic Knowledge" /><span class="radio-label">Yes, Basic</span></label>
-                        <label class="radio-card"><input type="radio" name="aiExp" value="No, Never Used" /><span class="radio-label">Never Used</span></label>
-                    </div>
-                    <span class="field-error" id="err-aiExp"></span>
-                </div>
-
-                <div class="form-divider"></div>
-
-                <!-- Instagram -->
-                <div class="field-group">
-                    <label for="instagram">Instagram Username <span class="opt">(Optional)</span></label>
-                    <div class="input-prefix-wrap">
-                        <span class="input-prefix">@</span>
-                        <input type="text" id="instagram" name="instagram" placeholder="yourhandle" />
-                    </div>
-                </div>
-
-                <!-- Referral -->
-                <div class="field-group">
-                    <label>How did you hear about this workshop?</label>
-                    <div class="select-wrap">
-                        <select id="referral" name="referral">
-                            <option value="">— Select one —</option>
-                            <option value="Instagram">Instagram</option>
-                            <option value="WhatsApp">WhatsApp</option>
-                            <option value="Friend">Friend / Word of Mouth</option>
-                            <option value="College">College</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <span class="select-arrow">▾</span>
-                    </div>
-                </div>
-
-                <!-- Submit -->
-                <button type="submit" class="btn-submit" id="submitBtn">
-                    <span id="btn-text">Reserve My Seat →</span>
-                    <span id="btn-loader" class="btn-loader hidden"></span>
-                </button>
-
-                <p class="form-note">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    Your data is secure &amp; will only be used for workshop coordination.
+            <!-- SUCCESS CARD -->
+            <div class="success-card hidden" id="successCard">
+                <div class="success-confetti" id="confetti-container"></div>
+                <div class="success-icon">🎉</div>
+                <h2 class="success-title">You're <span>Registered!</span></h2>
+                <p class="success-msg">
+                    Thank you for joining the <strong>Creator Craft Media Workshop</strong>.<br />
+                    We'll send your confirmation to your WhatsApp &amp; email shortly.<br /><br />
+                    Get ready to transform your mobile into a career!
                 </p>
-            </form>
-        </div>
 
-        <!-- SUCCESS CARD -->
-        <div class="success-card hidden" id="successCard">
-            <div class="success-confetti" id="confetti-container"></div>
-            <div class="success-icon">🎉</div>
-            <h2 class="success-title">You're <span>Registered!</span></h2>
-            <p class="success-msg">
-                Thank you for joining the <strong>Creator Craft Media Workshop</strong>.<br />
-                We'll send your confirmation to your WhatsApp &amp; email shortly.<br /><br />
-                Get ready to transform your mobile into a career!
-            </p>
+                <a href="index.html" class="back-home-link">← Back to main site</a>
+            </div>
 
-            <a href="index.html" class="back-home-link">← Back to main site</a>
-        </div>
+        </main>
+    </div>
 
-    </main>
-</div>
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5IBLBwgdzNLXTFgwIlohF6OfF_JEOhXFf6rNVBT4Gp4LhPuncQvhux3b/exec";
 
-<script>
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5IBLBwgdzNLXTFgwIlohF6OfF_JEOhXFf6rNVBT4Gp4LhPuncQvhux3b/exec";
+        (function () {
+            const form = document.getElementById("registrationForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const btnText = document.getElementById("btn-text");
+            const btnLoader = document.getElementById("btn-loader");
+            const successCard = document.getElementById("successCard");
+            const formSection = document.getElementById("formSection");
+            const queueCard = document.getElementById("queueCard");
+            const queueProgressBar = document.getElementById("queueProgressBar");
+            const queueStatusText = document.getElementById("queueStatusText");
 
-(function () {
-    const form       = document.getElementById("registrationForm");
-    const submitBtn  = document.getElementById("submitBtn");
-    const btnText    = document.getElementById("btn-text");
-    const btnLoader  = document.getElementById("btn-loader");
-    const successCard = document.getElementById("successCard");
-    const formSection = document.getElementById("formSection");
+            if (!form) return;
 
-    if (!form) return;
+            const rules = {
+                fullName: { required: true, label: "Full Name" },
+                phone: { required: true, label: "WhatsApp Number", pattern: /^[6-9]\d{9}$|^\+91[6-9]\d{9}$|^\+[1-9]\d{7,14}$/ },
+                email: { required: true, label: "Email", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+                age: { required: true, label: "Age Group", type: "radio" },
+                location: { required: true, label: "Location" },
+                interest: { required: true, label: "Learning Interest", type: "radio" },
+                profession: { required: true, label: "Profession", type: "radio" },
+                aiExp: { required: true, label: "AI Experience", type: "radio" },
+            };
 
-    const rules = {
-        fullName:   { required: true, label: "Full Name" },
-        phone:      { required: true, label: "WhatsApp Number", pattern: /^[6-9]\d{9}$|^\+91[6-9]\d{9}$|^\+[1-9]\d{7,14}$/ },
-        email:      { required: true, label: "Email", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-        age:        { required: true, label: "Age Group", type: "radio" },
-        location:   { required: true, label: "Location" },
-        interest:   { required: true, label: "Learning Interest", type: "radio" },
-        profession: { required: true, label: "Profession", type: "radio" },
-        aiExp:      { required: true, label: "AI Experience", type: "radio" },
-    };
-
-    function getVal(name, type) {
-        if (type === "radio") {
-            const sel = form.querySelector(`input[name="${name}"]:checked`);
-            return sel ? sel.value : "";
-        }
-        const el = form.querySelector(`[name="${name}"]`);
-        return el ? el.value.trim() : "";
-    }
-
-    function setError(name, msg) {
-        const el  = document.getElementById(`err-${name}`);
-        const inp = form.querySelector(`[name="${name}"]`);
-        if (el) el.textContent = msg;
-        if (inp && inp.type !== "radio") inp.classList.toggle("input-error", !!msg);
-    }
-
-    function clearError(name) { setError(name, ""); }
-
-    function validateAll() {
-        let valid = true;
-        for (const [name, rule] of Object.entries(rules)) {
-            const val = getVal(name, rule.type);
-            if (rule.required && !val) {
-                setError(name, `${rule.label} is required.`);
-                valid = false;
-            } else if (val && rule.pattern && !rule.pattern.test(val.replace(/\s/g, ""))) {
-                const msgs = { phone: "Enter a valid phone number.", email: "Enter a valid email." };
-                setError(name, msgs[name] || "Invalid value.");
-                valid = false;
-            } else {
-                clearError(name);
+            function getVal(name, type) {
+                if (type === "radio") {
+                    const sel = form.querySelector(`input[name="${name}"]:checked`);
+                    return sel ? sel.value : "";
+                }
+                const el = form.querySelector(`[name="${name}"]`);
+                return el ? el.value.trim() : "";
             }
-        }
-        return valid;
-    }
 
-    form.addEventListener("input",  e => { if (rules[e.target.name]) clearError(e.target.name); });
-    form.addEventListener("change", e => { if (rules[e.target.name]) clearError(e.target.name); });
+            function setError(name, msg) {
+                const el = document.getElementById(`err-${name}`);
+                const inp = form.querySelector(`[name="${name}"]`);
+                if (el) el.textContent = msg;
+                if (inp && inp.type !== "radio") inp.classList.toggle("input-error", !!msg);
+            }
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (!validateAll()) {
-            const firstErr = form.querySelector(".input-error");
-            if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
-            return;
-        }
+            function clearError(name) { setError(name, ""); }
 
-        btnText.classList.add("hidden");
-        btnLoader.classList.remove("hidden");
-        submitBtn.disabled = true;
+            function validateAll() {
+                let valid = true;
+                for (const [name, rule] of Object.entries(rules)) {
+                    const val = getVal(name, rule.type);
+                    if (rule.required && !val) {
+                        setError(name, `${rule.label} is required.`);
+                        valid = false;
+                    } else if (val && rule.pattern && !rule.pattern.test(val.replace(/\s/g, ""))) {
+                        const msgs = { phone: "Enter a valid phone number.", email: "Enter a valid email." };
+                        setError(name, msgs[name] || "Invalid value.");
+                        valid = false;
+                    } else {
+                        clearError(name);
+                    }
+                }
+                return valid;
+            }
 
-        const data = {
-            name:       getVal("fullName"),
-            phone:      getVal("phone"),
-            email:      getVal("email"),
-            age:        getVal("age", "radio"),
-            location:   getVal("location"),
-            interest:   getVal("interest", "radio"),
-            profession: getVal("profession", "radio"),
-            aiExp:      getVal("aiExp", "radio"),
-            instagram:  getVal("instagram"),
-            referral:   getVal("referral"),
-        };
+            form.addEventListener("input", e => { if (rules[e.target.name]) clearError(e.target.name); });
+            form.addEventListener("change", e => { if (rules[e.target.name]) clearError(e.target.name); });
 
-        try {
-            await fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                if (!validateAll()) {
+                    const firstErr = form.querySelector(".input-error");
+                    if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return;
+                }
+
+                // Show queueing screen instead of just button loader
+                formSection.classList.add("hidden");
+                queueCard.classList.remove("hidden");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+
+                // Animate progress bar & cycle status texts
+                let progress = 0;
+                let progressInterval;
+                let textIndex = 0;
+                const statusTexts = [
+                    "Connecting to seat booking registry...",
+                    "Analyzing remaining slot capacity...",
+                    "Acquiring database write locks...",
+                    "Securing your workspace seat...",
+                    "Writing registration to sheet database...",
+                    "Pinging confirmation details...",
+                    "Finalizing reservation... please wait in queue"
+                ];
+
+                const updateProgress = () => {
+                    if (progress < 90) {
+                        const increment = Math.max(1, (90 - progress) * 0.12);
+                        progress += increment;
+                        if (queueProgressBar) queueProgressBar.style.width = `${progress}%`;
+                    }
+                    if (progressInterval && Math.floor(progress / 15) > textIndex) {
+                        textIndex = Math.floor(progress / 15);
+                        if (textIndex < statusTexts.length && queueStatusText) {
+                            queueStatusText.textContent = statusTexts[textIndex];
+                        }
+                    }
+                };
+
+                progressInterval = setInterval(updateProgress, 150);
+
+                const data = {
+                    name: getVal("fullName"),
+                    phone: getVal("phone"),
+                    email: getVal("email"),
+                    age: getVal("age", "radio"),
+                    location: getVal("location"),
+                    interest: getVal("interest", "radio"),
+                    profession: getVal("profession", "radio"),
+                    aiExp: getVal("aiExp", "radio"),
+                    instagram: getVal("instagram"),
+                    referral: getVal("referral"),
+                };
+
+                try {
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data),
+                    });
+                    
+                    clearInterval(progressInterval);
+                    if (queueProgressBar) queueProgressBar.style.width = "100%";
+                    if (queueStatusText) queueStatusText.textContent = "Seat secured successfully!";
+                    
+                    setTimeout(() => {
+                        showSuccess();
+                    }, 500);
+                } catch (err) {
+                    console.error("Submission error:", err);
+                    clearInterval(progressInterval);
+                    if (queueProgressBar) queueProgressBar.style.width = "100%";
+                    if (queueStatusText) queueStatusText.textContent = "Seat secured successfully!";
+                    
+                    setTimeout(() => {
+                        showSuccess();
+                    }, 500);
+                }
             });
-            showSuccess();
-        } catch (err) {
-            console.error("Submission error:", err);
-            showSuccess();
-        }
-    });
 
-    function showSuccess() {
-        formSection.classList.add("hidden");
-        successCard.classList.remove("hidden");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        launchConfetti();
-    }
+            function showSuccess() {
+                formSection.classList.add("hidden");
+                queueCard.classList.add("hidden");
+                successCard.classList.remove("hidden");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                launchConfetti();
+            }
 
-    function launchConfetti() {
-        const container = document.getElementById("confetti-container");
-        if (!container) return;
-        const colors = ["#00BFFF","#6D5DFC","#FBBF24","#FF7A00","#FFFFFF","#F472B6"];
-        for (let i = 0; i < 60; i++) {
-            const p = document.createElement("div");
-            p.className = "confetti-piece";
-            p.style.cssText = `
-                left:${Math.random()*100}%;top:0;
-                background:${colors[Math.floor(Math.random()*colors.length)]};
-                animation-duration:${0.9+Math.random()*1.6}s;
-                animation-delay:${Math.random()*0.8}s;
-                width:${6+Math.random()*7}px;height:${6+Math.random()*7}px;
-                border-radius:${Math.random()>0.5?"50%":"2px"};
+            function launchConfetti() {
+                const container = document.getElementById("confetti-container");
+                if (!container) return;
+                const colors = ["#00BFFF", "#6D5DFC", "#FBBF24", "#FF7A00", "#FFFFFF", "#F472B6"];
+                for (let i = 0; i < 60; i++) {
+                    const p = document.createElement("div");
+                    p.className = "confetti-piece";
+                    p.style.cssText = `
+                left:${Math.random() * 100}%;top:0;
+                background:${colors[Math.floor(Math.random() * colors.length)]};
+                animation-duration:${0.9 + Math.random() * 1.6}s;
+                animation-delay:${Math.random() * 0.8}s;
+                width:${6 + Math.random() * 7}px;height:${6 + Math.random() * 7}px;
+                border-radius:${Math.random() > 0.5 ? "50%" : "2px"};
             `;
-            container.appendChild(p);
-        }
-    }
-})();
-</script>
+                    container.appendChild(p);
+                }
+            }
+        })();
+    </script>
 </body>
+
 </html>

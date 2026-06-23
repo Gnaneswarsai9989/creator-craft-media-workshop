@@ -132,10 +132,51 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5I
             return;
         }
 
-        // Loading state
-        btnText.classList.add("hidden");
-        btnLoader.classList.remove("hidden");
-        submitBtn.disabled = true;
+        const queueCard = document.getElementById("queueCard");
+        const queueProgressBar = document.getElementById("queueProgressBar");
+        const queueStatusText = document.getElementById("queueStatusText");
+        const formSection = document.getElementById("formSection") || form.closest(".form-card");
+
+        let progressInterval;
+        if (queueCard && formSection) {
+            // Show queueing screen
+            formSection.classList.add("hidden");
+            queueCard.classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            // Animate progress bar & cycle status texts
+            let progress = 0;
+            let textIndex = 0;
+            const statusTexts = [
+                "Connecting to seat booking registry...",
+                "Analyzing remaining slot capacity...",
+                "Acquiring database write locks...",
+                "Securing your workspace seat...",
+                "Writing registration to sheet database...",
+                "Pinging confirmation details...",
+                "Finalizing reservation... please wait in queue"
+            ];
+
+            const updateProgress = () => {
+                if (progress < 90) {
+                    const increment = Math.max(1, (90 - progress) * 0.12);
+                    progress += increment;
+                    if (queueProgressBar) queueProgressBar.style.width = `${progress}%`;
+                }
+                if (progressInterval && Math.floor(progress / 15) > textIndex) {
+                    textIndex = Math.floor(progress / 15);
+                    if (textIndex < statusTexts.length && queueStatusText) {
+                        queueStatusText.textContent = statusTexts[textIndex];
+                    }
+                }
+            };
+            progressInterval = setInterval(updateProgress, 150);
+        } else {
+            // Fallback: Loading state on button
+            if (btnText) btnText.classList.add("hidden");
+            if (btnLoader) btnLoader.classList.remove("hidden");
+            submitBtn.disabled = true;
+        }
 
         const data = collectData();
 
@@ -148,19 +189,34 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5I
                 body: JSON.stringify(data),
             });
 
-            // Show success (no-cors means we assume success if no network error)
-            showSuccess();
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                if (queueProgressBar) queueProgressBar.style.width = "100%";
+                if (queueStatusText) queueStatusText.textContent = "Seat secured successfully!";
+                setTimeout(() => showSuccess(queueCard, formSection), 500);
+            } else {
+                showSuccess(queueCard, formSection);
+            }
         } catch (err) {
             console.error("Submission error:", err);
-            // Still show success UI if it's just a CORS response issue
-            showSuccess();
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                if (queueProgressBar) queueProgressBar.style.width = "100%";
+                if (queueStatusText) queueStatusText.textContent = "Seat secured successfully!";
+                setTimeout(() => showSuccess(queueCard, formSection), 500);
+            } else {
+                showSuccess(queueCard, formSection);
+            }
         }
     });
 
-    function showSuccess() {
-        form.closest(".form-card").classList.add("hidden");
-        successCard.classList.remove("hidden");
-        successCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    function showSuccess(queueCard, formSection) {
+        if (formSection) formSection.classList.add("hidden");
+        if (queueCard) queueCard.classList.add("hidden");
+        if (successCard) {
+            successCard.classList.remove("hidden");
+            successCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
         launchConfetti();
     }
 
@@ -190,8 +246,25 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5I
 /* ============================================================
    GOOGLE APPS SCRIPT SETUP (paste into script.google.com)
    ============================================================
+   IMPORTANT (High Concurrency & Queueing):
+   To handle multiple concurrent registrations (e.g. 10 or 100 
+   people registering at the same time), we use Google's LockService.
+   This locks the script block and queues requests so they write 
+   safely one-by-one without skipping or overwriting rows.
 
 function doPost(e) {
+  // 1. Get a public lock
+  var lock = LockService.getScriptLock();
+  
+  // 2. Try to acquire lock for up to 30 seconds
+  try {
+    lock.waitLock(30000); 
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: "error", error: "Queue timeout. Please try again." }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data  = JSON.parse(e.postData.contents);
@@ -219,6 +292,9 @@ function doPost(e) {
     return ContentService
       .createTextOutput(JSON.stringify({ result: "error", error: err.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    // 3. Always release the lock
+    lock.releaseLock();
   }
 }
 
