@@ -16,6 +16,109 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0OwnUjO1a5I
     }, { passive: true });
 })();
 
+// ─── URGENCY POPUP ───────────────────────────────────────────
+(function () {
+    const overlay  = document.getElementById("urgency-overlay");
+    const dismiss  = document.getElementById("urgency-dismiss");
+    const ctaBtn   = document.getElementById("urgency-cta");
+    const TARGET   = new Date("2026-06-28T10:30:00Z").getTime();
+
+    if (!overlay) return;
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+
+    function flashU(el, val) {
+        if (!el || el.textContent === val) return;
+        el.textContent = val;
+        el.classList.remove("flip");
+        void el.offsetWidth;
+        el.classList.add("flip");
+        setTimeout(() => el.classList.remove("flip"), 180);
+    }
+
+    const uDays  = document.getElementById("u-days");
+    const uHours = document.getElementById("u-hours");
+    const uMins  = document.getElementById("u-mins");
+    const uSecs  = document.getElementById("u-secs");
+
+    function tickPopup() {
+        const diff = TARGET - Date.now();
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        flashU(uDays,  pad(d));
+        flashU(uHours, pad(h));
+        flashU(uMins,  pad(m));
+        flashU(uSecs,  pad(s));
+    }
+    tickPopup();
+    const popupTimer = setInterval(tickPopup, 1000);
+
+    function closePopup() {
+        clearInterval(popupTimer);
+        overlay.classList.add("hide");
+        setTimeout(() => overlay.remove(), 400);
+    }
+
+    // Close on dismiss button
+    if (dismiss) dismiss.addEventListener("click", closePopup);
+
+    // Close on overlay click (outside modal)
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closePopup();
+    });
+
+    // Close when CTA is clicked (let link navigate)
+    if (ctaBtn) ctaBtn.addEventListener("click", () => {
+        setTimeout(closePopup, 100);
+    });
+})();
+
+
+
+// ─── COUNTDOWN TIMER ─────────────────────────────────────────
+(function () {
+    // June 28 2026, 4:00 PM IST (UTC+5:30) → UTC 10:30
+    const TARGET = new Date("2026-06-28T10:30:00Z").getTime();
+
+    // Hero inline elements
+    const hDays  = document.getElementById("hcd-days");
+    const hHours = document.getElementById("hcd-hours");
+    const hMins  = document.getElementById("hcd-mins");
+    const hSecs  = document.getElementById("hcd-secs");
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+
+    function flash(el, val) {
+        if (!el || el.textContent === val) return;
+        el.textContent = val;
+        el.classList.remove("flip");
+        void el.offsetWidth;
+        el.classList.add("flip");
+        setTimeout(() => el.classList.remove("flip"), 180);
+    }
+
+    function tick() {
+        const diff = TARGET - Date.now();
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        // Hero
+        flash(hDays,  pad(d));
+        flash(hHours, pad(h));
+        flash(hMins,  pad(m));
+        flash(hSecs,  pad(s));
+    }
+
+    tick();
+    setInterval(tick, 1000);
+})();
+
+
 // ─── REVEAL ON SCROLL ────────────────────────────────────────
 (function () {
     const targets = document.querySelectorAll("[data-reveal]");

@@ -16,7 +16,65 @@
 
 <body>
 
-    <!-- NAV -->
+    <!-- ── URGENCY POPUP MODAL ── -->
+    <div class="urgency-overlay" id="urgency-overlay">
+        <div class="urgency-modal" id="urgency-modal">
+
+            <!-- Fire pulse icon -->
+            <div class="urgency-icon-ring">
+                <div class="urgency-icon-pulse"></div>
+                <span class="urgency-icon">🔥</span>
+            </div>
+
+            <!-- Label -->
+            <div class="urgency-badge">⚡ LIMITED SEATS</div>
+
+            <!-- Headline -->
+            <h2 class="urgency-title">Hurry Up!</h2>
+            <p class="urgency-sub">Seats are filling <strong>FAST</strong> — Workshop starts in</p>
+
+            <!-- Countdown -->
+            <div class="urgency-timer" id="urgency-timer">
+                <div class="urgency-block">
+                    <span class="urgency-num" id="u-days">00</span>
+                    <span class="urgency-unit">Days</span>
+                </div>
+                <span class="urgency-sep">:</span>
+                <div class="urgency-block">
+                    <span class="urgency-num" id="u-hours">00</span>
+                    <span class="urgency-unit">Hrs</span>
+                </div>
+                <span class="urgency-sep">:</span>
+                <div class="urgency-block">
+                    <span class="urgency-num" id="u-mins">00</span>
+                    <span class="urgency-unit">Min</span>
+                </div>
+                <span class="urgency-sep">:</span>
+                <div class="urgency-block">
+                    <span class="urgency-num" id="u-secs">00</span>
+                    <span class="urgency-unit">Sec</span>
+                </div>
+            </div>
+
+            <!-- Seat availability bar -->
+            <div class="urgency-seats-label">
+                <span class="urgency-dot-red"></span>
+                Only a few seats left — June 28, 4:00 PM
+            </div>
+            <div class="urgency-progress-wrap">
+                <div class="urgency-progress-bar"></div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="register.html" target="_blank" class="urgency-cta" id="urgency-cta">
+                Reserve My Seat →
+            </a>
+
+            <!-- Dismiss -->
+            <button class="urgency-dismiss" id="urgency-dismiss">Maybe Later</button>
+        </div>
+    </div>
+
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
             <div class="brand">
@@ -59,7 +117,7 @@
             <div class="hero-event-card" data-reveal>
                 <div class="event-card-item">
                     <div class="event-icon-wrapper date-icon">
-                        <span>🗓️</span>
+                        <span>📅</span>
                     </div>
                     <div class="event-details">
                         <span class="event-label">DATE & DAY</span>
@@ -88,8 +146,40 @@
             </div>
 
 
+            <!-- COUNTDOWN above button -->
+            <div class="hero-countdown" data-reveal>
+                <div class="hero-countdown-label">
+                    <span class="badge-dot"></span>
+                    Workshop starts in
+                </div>
+                <div class="hero-countdown-timer" id="hero-countdown-timer">
+                    <div class="hcd-block">
+                        <span class="hcd-num" id="hcd-days">00</span>
+                        <span class="hcd-unit">Days</span>
+                    </div>
+                    <span class="hcd-sep">:</span>
+                    <div class="hcd-block">
+                        <span class="hcd-num" id="hcd-hours">00</span>
+                        <span class="hcd-unit">Hrs</span>
+                    </div>
+                    <span class="hcd-sep">:</span>
+                    <div class="hcd-block">
+                        <span class="hcd-num" id="hcd-mins">00</span>
+                        <span class="hcd-unit">Min</span>
+                    </div>
+                    <span class="hcd-sep">:</span>
+                    <div class="hcd-block">
+                        <span class="hcd-num" id="hcd-secs">00</span>
+                        <span class="hcd-unit">Sec</span>
+                    </div>
+                </div>
+                <div class="hcd-urgency">
+                    <span class="urgency-dot"></span>
+                    Limited seats — June 28, 4:00 PM
+                </div>
+            </div>
+
             <div class="hero-cta-group" data-reveal>
-                <a href="register.html" target="_blank" class="btn-primary">Reserve My Seat →</a>
                 <a href="#learn" class="btn-ghost">What You'll Learn</a>
             </div>
 
@@ -202,7 +292,10 @@
     </section>
 
 
+
+
     <!-- FOOTER -->
+
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
@@ -212,6 +305,11 @@
             <p class="footer-copy">© 2026 Creator Craft Media, Nellore. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- STICKY BOTTOM RESERVE BUTTON -->
+    <div class="sticky-reserve" id="sticky-reserve">
+        <a href="register.html" target="_blank" class="sticky-reserve-btn">Reserve My Seat →</a>
+    </div>
 
     <script src="script.js"></script>
 </body>

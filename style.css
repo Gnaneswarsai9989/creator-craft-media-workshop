@@ -600,7 +600,303 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 14px;
-    margin-bottom: 56px;
+    margin-bottom: 20px;
+}
+
+/* ─── HERO INLINE COUNTDOWN ───────────────────── */
+.hero-countdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.hero-countdown-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+.hero-countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hcd-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    background: rgba(0, 191, 255, 0.07);
+    border: 1px solid rgba(0, 191, 255, 0.18);
+    border-radius: 12px;
+    padding: 12px 18px;
+    min-width: 68px;
+    position: relative;
+}
+
+.hcd-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    border-radius: 12px 12px 0 0;
+}
+
+.hcd-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 20%, #00BFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.4));
+    transition: transform 0.15s ease;
+}
+
+.hcd-num.flip {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.9));
+}
+
+.hcd-unit {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white-60);
+}
+
+.hcd-sep {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    color: rgba(0, 191, 255, 0.4);
+    margin-bottom: 14px;
+    animation: sep-pulse 1s ease-in-out infinite;
+}
+
+.hcd-urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 80, 80, 0.85);
+    letter-spacing: 0.05em;
+}
+
+/* ─── STICKY BOTTOM BAR ───────────────────────── */
+.sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(4, 4, 6, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(0, 191, 255, 0.15);
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.8), 0 -1px 0 rgba(0, 191, 255, 0.08);
+    padding: 12px 24px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+}
+
+.sticky-bar.visible {
+    transform: translateY(0);
+}
+
+/* ─── STICKY RESERVE BOTTOM BUTTON ───────────── */
+.sticky-reserve {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    padding: 14px 20px;
+    background: rgba(4, 4, 6, 0.93);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(251, 191, 36, 0.2);
+    box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.7);
+    will-change: transform;
+}
+
+.sticky-reserve-btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, #FBBF24 0%, #FF7A00 100%);
+    color: #0a0a0a;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 44px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 28px rgba(255, 122, 0, 0.5);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    animation: cta-pulse 2.4s ease-in-out infinite;
+}
+
+.sticky-reserve-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(255, 122, 0, 0.7);
+    animation: none;
+}
+
+
+
+.sticky-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.sticky-countdown {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sticky-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--white-60);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.sticky-timer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sticky-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 20%, #00BFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 28px;
+    display: inline-block;
+    text-align: center;
+    transition: transform 0.15s ease;
+}
+
+.sticky-num.flip {
+    transform: scale(1.18);
+}
+
+.sticky-unit {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white-60);
+    letter-spacing: 0.1em;
+    margin-right: 4px;
+}
+
+.sticky-sep {
+    font-size: 18px;
+    font-weight: 900;
+    color: rgba(0, 191, 255, 0.4);
+    margin: 0 2px;
+    animation: sep-pulse 1s ease-in-out infinite;
+}
+
+.sticky-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #FBBF24 0%, #FF7A00 100%);
+    color: #0a0a0a;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 11px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(255, 122, 0, 0.45);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: cta-pulse 2.4s ease-in-out infinite;
+}
+
+.sticky-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.55s ease;
+}
+
+.sticky-cta:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(255, 122, 0, 0.65);
+    animation: none;
+}
+
+.sticky-cta:hover::before {
+    left: 160%;
+}
+
+@media (max-width: 540px) {
+    .sticky-label {
+        display: none;
+    }
+
+    .sticky-num {
+        font-size: 18px;
+    }
+
+    .sticky-cta {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    .hcd-block {
+        min-width: 55px;
+        padding: 10px 12px;
+    }
+
+    .hcd-num {
+        font-size: 22px;
+    }
 }
 
 .btn-primary {
@@ -637,6 +933,48 @@ body {
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 44px rgba(255, 122, 0, 0.65);
+}
+
+/* ─── STICKY RESERVE BUTTON ───────────────────── */
+.btn-sticky {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 300;
+    width: calc(100% - 40px);
+    max-width: 480px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 16px;
+    padding: 18px 44px;
+    box-shadow:
+        0 8px 40px rgba(255, 122, 0, 0.55),
+        0 0 0 1px rgba(251, 191, 36, 0.25),
+        0 2px 0 rgba(255, 255, 255, 0.12) inset;
+    animation: btn-sticky-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, cta-pulse 2.4s ease-in-out infinite 0.4s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+@keyframes btn-sticky-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.btn-sticky:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow:
+        0 14px 50px rgba(255, 122, 0, 0.75),
+        0 0 0 2px rgba(251, 191, 36, 0.4),
+        0 2px 0 rgba(255, 255, 255, 0.15) inset;
 }
 
 .btn-ghost {
@@ -1616,3 +1954,589 @@ body {
             110px 710px 0 rgba(0, 191, 255, 0.4);
     }
 }
+
+/* ─── COUNTDOWN TIMER ─────────────────────────── */
+.countdown-section {
+    background: radial-gradient(ellipse at 60% 0%, rgba(0, 191, 255, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse at 20% 100%, rgba(255, 122, 0, 0.05) 0%, transparent 60%),
+        #000;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 24px;
+}
+
+.countdown-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.countdown-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(0, 191, 255, 0.08);
+    border: 1px solid rgba(0, 191, 255, 0.25);
+    padding: 7px 20px;
+    border-radius: 50px;
+}
+
+.countdown-headline {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    margin: 0;
+}
+
+.countdown-sub {
+    font-size: 15px;
+    color: var(--white-60);
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* The main countdown grid */
+.countdown-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.countdown-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: rgba(5, 5, 8, 0.9);
+    border: 1px solid rgba(0, 191, 255, 0.15);
+    border-radius: 20px;
+    padding: 28px 32px;
+    min-width: 110px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 16px 48px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(0, 191, 255, 0.04);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.countdown-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    border-radius: 20px 20px 0 0;
+}
+
+.countdown-block:hover {
+    border-color: rgba(0, 191, 255, 0.35);
+    transform: translateY(-4px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 24px 60px rgba(0, 0, 0, 0.85),
+        0 0 40px rgba(0, 191, 255, 0.1);
+}
+
+.countdown-num {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 30%, #00BFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 16px rgba(0, 191, 255, 0.4));
+    transition: transform 0.15s ease;
+    min-width: 2ch;
+    text-align: center;
+}
+
+.countdown-num.flip {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 28px rgba(0, 191, 255, 0.8));
+}
+
+.countdown-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-60);
+}
+
+.countdown-sep {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: rgba(0, 191, 255, 0.4);
+    line-height: 1;
+    margin-bottom: 24px;
+    /* offset to align with numbers above labels */
+    animation: sep-pulse 1s ease-in-out infinite;
+}
+
+@keyframes sep-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Ended state */
+.countdown-ended {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--gold);
+    text-align: center;
+    padding: 20px 36px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 16px;
+}
+
+/* CTA button tweak inside countdown */
+.countdown-cta {
+    font-size: 15px;
+    padding: 17px 44px;
+    letter-spacing: 0.06em;
+    margin-top: 8px;
+}
+
+/* Urgency pill */
+.countdown-urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255, 80, 80, 0.9);
+    background: rgba(255, 60, 60, 0.08);
+    border: 1px solid rgba(255, 60, 60, 0.2);
+    padding: 6px 18px;
+    border-radius: 50px;
+}
+
+.urgency-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff4444;
+    flex-shrink: 0;
+    animation: urgency-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes urgency-blink {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.6);
+        opacity: 1;
+    }
+
+    50% {
+        box-shadow: 0 0 0 5px rgba(255, 68, 68, 0);
+        opacity: 0.7;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive countdown */
+@media (max-width: 600px) {
+    .countdown-block {
+        min-width: 70px;
+        padding: 18px 16px;
+    }
+
+    .countdown-grid {
+        gap: 8px;
+    }
+
+    .countdown-sep {
+        font-size: 28px;
+    }
+}
+
+/* ─── STICKY RESERVE BUTTON ───────────────────── */
+.reserve-btn-wrap {
+    position: relative;
+    display: inline-flex;
+}
+
+.reserve-btn-placeholder {
+    display: none;
+    /* shown by JS when btn is sticky */
+    pointer-events: none;
+}
+
+/* When btn becomes sticky */
+#reserve-btn.btn-sticky {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 300;
+    box-shadow: 0 8px 40px rgba(255, 122, 0, 0.65), 0 0 0 1px rgba(255, 122, 0, 0.3);
+    animation: cta-pulse 2.4s ease-in-out infinite;
+    /* keep original sizing */
+    font-size: 15px;
+    padding: 17px 44px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+    #reserve-btn.btn-sticky {
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        transform: none;
+        text-align: center;
+        justify-content: center;
+        width: calc(100% - 32px);
+    }
+}
+
+/* ══════════════════════════════════════════════
+   URGENCY POPUP MODAL
+══════════════════════════════════════════════ */
+.urgency-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    animation: overlay-in 0.4s ease 0.3s forwards;
+}
+
+.urgency-overlay.hide {
+    animation: overlay-out 0.35s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes overlay-in {
+    to { opacity: 1; }
+}
+@keyframes overlay-out {
+    to { opacity: 0; }
+}
+
+.urgency-modal {
+    position: relative;
+    background: linear-gradient(160deg, #0d0d10 0%, #0a0a0f 100%);
+    border: 1px solid rgba(251, 191, 36, 0.22);
+    border-radius: 24px;
+    padding: 36px 28px 28px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow:
+        0 0 0 1px rgba(255, 122, 0, 0.08),
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(251, 191, 36, 0.06);
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+    animation: modal-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards;
+}
+
+@keyframes modal-in {
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ── Fire Icon Ring ── */
+.urgency-icon-ring {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.urgency-icon-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 122, 0, 0.15);
+    border: 2px solid rgba(255, 122, 0, 0.35);
+    animation: icon-ring-pulse 1.8s ease-in-out infinite;
+}
+
+.urgency-icon-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(251, 191, 36, 0.15);
+    animation: icon-ring-pulse 1.8s ease-in-out 0.4s infinite;
+}
+
+@keyframes icon-ring-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.18); opacity: 0.5; }
+}
+
+.urgency-icon {
+    font-size: 34px;
+    line-height: 1;
+    filter: drop-shadow(0 0 16px rgba(255, 122, 0, 0.7));
+    animation: fire-shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes fire-shake {
+    from { transform: rotate(-6deg) scale(1); }
+    to   { transform: rotate(6deg) scale(1.08); }
+}
+
+/* ── Badge ── */
+.urgency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: #FBBF24;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+/* ── Title ── */
+.urgency-title {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #FBBF24 0%, #FF7A00 60%, #FF4500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 122, 0, 0.45));
+}
+
+.urgency-sub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.urgency-sub strong {
+    color: #FF7A00;
+    font-weight: 800;
+}
+
+/* ── Countdown ── */
+.urgency-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.urgency-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    min-width: 58px;
+    position: relative;
+    overflow: hidden;
+}
+
+.urgency-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FBBF24, #FF7A00);
+}
+
+.urgency-num {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff 20%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    transition: transform 0.15s ease;
+}
+
+.urgency-num.flip {
+    transform: scale(1.2);
+}
+
+.urgency-unit {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.urgency-sep {
+    font-size: 20px;
+    font-weight: 900;
+    color: rgba(251, 191, 36, 0.4);
+    margin-bottom: 12px;
+    animation: sep-pulse 1s ease-in-out infinite;
+}
+
+/* ── Seats Label + Progress ── */
+.urgency-seats-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 11px;
+    color: rgba(255, 80, 80, 0.85);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.urgency-dot-red {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #FF5050;
+    flex-shrink: 0;
+    animation: pulse-dot 1.4s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(255, 80, 80, 0.6);
+}
+
+.urgency-progress-wrap {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+.urgency-progress-bar {
+    height: 100%;
+    width: 78%;
+    background: linear-gradient(90deg, #FF5050, #FF7A00, #FBBF24);
+    border-radius: 50px;
+    animation: progress-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes progress-glow {
+    from { box-shadow: 0 0 4px rgba(255, 122, 0, 0.4); }
+    to   { box-shadow: 0 0 14px rgba(255, 122, 0, 0.8); }
+}
+
+/* ── CTA Button ── */
+.urgency-cta {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #FBBF24 0%, #FF7A00 100%);
+    color: #0a0a0a;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 17px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 32px rgba(255, 122, 0, 0.55);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    animation: cta-pulse 2.4s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.urgency-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.55s ease;
+}
+
+.urgency-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 44px rgba(255, 122, 0, 0.75);
+    animation: none;
+}
+
+.urgency-cta:hover::before {
+    left: 160%;
+}
+
+/* ── Dismiss ── */
+.urgency-dismiss {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.urgency-dismiss:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
